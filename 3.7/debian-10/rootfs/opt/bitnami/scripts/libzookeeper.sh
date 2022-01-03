@@ -179,7 +179,7 @@ zookeeper_generate_conf() {
 
     # Admin web server https://zookeeper.apache.org/doc/r3.5.7/zookeeperAdmin.html#sc_adminserver
     zookeeper_conf_set "$ZOO_CONF_FILE" admin.serverPort "$ZOO_ADMIN_SERVER_PORT_NUMBER"
-    zookeeper_conf_set "$ZOO_CONF_FILE" admin.enableServer "$ZOO_ENABLE_ADMIN_SERVER"
+    zookeeper_conf_set "$ZOO_CONF_FILE" admin.enableServer "$(is_boolean_yes "$ZOO_ENABLE_ADMIN_SERVER" && echo "true" || echo "false")"
 
     # Add zookeeper servers to configuration
     server_id_with_jumps="no"
