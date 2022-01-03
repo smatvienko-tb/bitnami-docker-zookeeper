@@ -73,7 +73,7 @@ zookeeper_validate() {
     check_conflicting_ports ZOO_PORT_NUMBER ZOO_PROMETHEUS_METRICS_PORT_NUMBER
 
     is_boolean_yes "$ZOO_ENABLE_ADMIN_SERVER" && check_allowed_port ZOO_ADMIN_SERVER_PORT_NUMBER
-    is_boolean_yes "$ZOO_ENABLE_ADMIN_SERVER" && check_allowed_port ZOO_PORT_NUMBER ZOO_PROMETHEUS_METRICS_PORT_NUMBER ZOO_ADMIN_SERVER_PORT_NUMBER
+    is_boolean_yes "$ZOO_ENABLE_ADMIN_SERVER" && check_conflicting_ports ZOO_PORT_NUMBER ZOO_PROMETHEUS_METRICS_PORT_NUMBER ZOO_ADMIN_SERVER_PORT_NUMBER
 
     # ZooKeeper server users validations
     read -r -a server_users_list <<< "${ZOO_SERVER_USERS//[;, ]/ }"
