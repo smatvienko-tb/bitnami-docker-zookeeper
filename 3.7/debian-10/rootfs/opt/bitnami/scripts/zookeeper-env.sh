@@ -63,7 +63,7 @@ zookeeper_env_vars=(
     ZOO_CLIENT_PASSWORD
     ZOO_SERVER_PASSWORDS
     ZOO_ADMIN_SERVER_PORT_NUMBER
-    ZOO_ADMIN_SERVER_ENABLE
+    ZOO_ENABLE_ADMIN_SERVER
 )
 for env_var in "${zookeeper_env_vars[@]}"; do
     file_env_var="${env_var}_FILE"
@@ -145,7 +145,7 @@ export ZOO_CLIENT_PASSWORD="${ZOO_CLIENT_PASSWORD:-}"
 export ZOO_SERVER_PASSWORDS="${ZOO_SERVER_PASSWORDS:-}"
 
 # Admin server https://zookeeper.apache.org/doc/r3.5.7/zookeeperAdmin.html#sc_adminserver
-export ZOO_ADMIN_SERVER_ENABLE="${ZOO_ADMIN_SERVER_ENABLE:-true}"
+export ZOO_ENABLE_ADMIN_SERVER="${ZOO_ENABLE_ADMIN_SERVER:-true}"
 export ZOO_ADMIN_SERVER_PORT_NUMBER="${ZOO_ADMIN_SERVER_PORT_NUMBER:-8080}"
 
 # Custom environment variables may be defined below
